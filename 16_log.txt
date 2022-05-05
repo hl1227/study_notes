@@ -6,4 +6,4 @@ ZeroDivisionError: division by zero
 [2022-05-05 17:25:20] [ERROR]-Traceback (most recent call last):
   File "C:\Users\win001\Desktop\2323\16-日志.py", line 38, in <module>
     8/0
-ZeroDivisionError: division by zero
+

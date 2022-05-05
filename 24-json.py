@@ -15,7 +15,7 @@ print(list_data)
 
 #2 dict list 转 字符串：
 data2 = [{"name":"张三","age":"18"},{"name":"李四","age":"20"}]
-str_data2 = json.dumps(data2)
+str_data2 = json.dumps(data2,ensure_ascii=False)
 print(str_data2)
 
 #3 dict list 写入文件：
