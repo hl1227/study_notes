@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="{{data.one_info_data_list.0.keyword}}">
+    <link rel="canonical" href="https://{{data.host}}/{{data.category | replace(' ','-')}}/{{data.one_info_data_list.0.source}}" />
+    <title>{{data.one_info_data_list.0.title}}</title>
+</head>
+
+<body>
+{% autoescape false %}
+
+host:{{data.host}}
+
+<div>
+    <p>详情页面包屑:-----------------------------------------------------------------------</p>
+    <p>
+        <a href="/">home</a>
+        -
+        <a href="/{{data.category | replace(' ','-')}}">{{ data.category }}</a>
+        -
+        <a href="">content</a>
+    </p>
+</div>
+
+分类:-----------------------------------------------------------------------
+<ul>
+    {% for category in data.category_list %}
+    <li>
+        <a href="/{{ category.category  | replace(' ','-')}}"><p>{{ category.category }}</p></a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+详情数据:-----------------------------------------------------------------------
+<div escape="false">
+{% for info_data in data.one_info_data_list %}
+    <p>{{ info_data.title }}</p>
+    <p>{{ info_data.keyword }}</p>
+    <p>{{ info_data.description }}</p>
+    <p>{{ info_data.author }}</p>
+    <p>{{ info_data.create_time }}</p>
+    <p><img src="{{ info_data.img_src }}" alt=""></p>
+    <p>{{ info_data.content }}</p>
+    <p>{{ data.shuffle_content }}</p>
+    <p>{{ data.random_content }}</p>
+{% endfor %}
+</div>
+
+详情页随机数据-----------------------------------------------------------------------
+{% for random_data in data.random_info_data_list %}
+    <a href="/{{ random_data.category | replace(' ','-') }}/{{ random_data.source }}">
+        <p>{{ random_data.title }}</p></a>
+        <p>{{ random_data.keyword }}</p>
+        <p>{{random_data.author}}{{ random_data.create_time }}</p>
+        <p>{{random_data.description }}</p>
+        <p><img src="{{ random_data.img_src }}" alt=""></p>
+{% endfor %}
+
+
+详情页其他数据---------------------------------------------------------------------
+{% for other_data in data.other_info_data_list %}
+    <a href="/{{ data.category | replace(' ','-') }}/{{ other_data.source }}">
+        <p>{{other_data.title}}</p></a>
+        <p>{{other_data.keyword}}</p>
+        <p>{{other_data.author}}{{other_data.create_time}}</p>
+        <p>{{other_data.description}}</p>
+        <p><img src="{{ other_data.img_src }}" alt=""></p>
+{% endfor %}
+
+详情页同分类热门数据------------------------------------------------------------------
+{% for hot_data in data.hot_info_data_list %}
+    <a href="/{{ data.category | replace(' ','-') }}/{{ hot_data.source }}">
+        <p>{{hot_data.title}}</p></a>
+        <p>{{hot_data.keyword}}</p>
+        <p>{{hot_data.author}}{{hot_data.create_time}}</p>
+        <p>{{hot_data.description}}</p>
+        <p><img src="{{ hot_data.img_src }}" alt=""></p>
+{% endfor %}
+{% endautoescape %}
+</body>
+</html>
