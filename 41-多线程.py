@@ -147,8 +147,9 @@ import time
 #线程池1-----------------------------------------------------------------------
 
 from concurrent.futures import ThreadPoolExecutor,as_completed
-import random
+import random,threading
 def test(num):
+    threading.currentThread().name
     time.sleep(random.uniform(0,0.1))
     print(num)
     return '-----'+str(num)

@@ -13,9 +13,9 @@ chrome_option.add_argument('user-agent={}'.format(ua_list))
 chrome_option.add_experimental_option('prefs', {'profile.managed_default_content_settings.images': 2})
 chrome_option.add_argument('blink-settings=imagesEnabled=false')
 # 无头浏览器----------------------------------------
+chrome_option.add_argument('--headless')
 chrome_option.add_argument('--no-sandbox')
 chrome_option.add_argument('--disable-dev-shm-usage')
-
 chrome_option.add_argument('--disable-gpu')
 #关闭证书验证错误
 chrome_option.add_argument('--ignore-certificate-errors')
