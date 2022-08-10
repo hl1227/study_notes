@@ -2,16 +2,21 @@
   <header >
     <div class="l-content">
       <el-button @click="handleMenu" plain  icon="el-icon-s-grid" size="mini"></el-button>
-      <h3>首页</h3>
+      <el-breadcrumb separator=">">
+        <el-breadcrumb-item v-for="item in tags" :key="item.path" :to={path:item.path} >
+          <span style="color: white">{{item.label}}</span>
+        </el-breadcrumb-item>
+
+      </el-breadcrumb>
     </div>
     <div class="r-conent" >
       <el-dropdown>
       <span class="el-dropdown-link">
-          <el-avatar size="medium" :src="userIMG" ></el-avatar>username<i class="el-icon-arrow-down el-icon--right"></i>
+          <p style="color: white"><el-avatar size="medium" :src="userIMG" ></el-avatar >username<i class="el-icon-arrow-down el-icon--right"></i></p>
       </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item icon="el-icon-user-solid">个人中心</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-remove">退出登录</el-dropdown-item>
+        <el-dropdown-menu slot="dropdown" style="background-color: #336666;">
+          <el-dropdown-item style="color: white" icon="el-icon-user-solid">个人中心</el-dropdown-item>
+          <el-dropdown-item style="color: white" icon="el-icon-remove">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: "CommonHeader",
   data(){
@@ -30,14 +36,21 @@ export default {
     handleMenu(){
       this.$store.commit('collapseMenu')
     }
+  },
+  computed:{
+    ...mapState({
+      tags:state=>state.tab.tabsList
+    })
   }
 }
 </script>
 
 <style lang="less" scoped>
 header {
+
   display: flex;
-  background-color: #333333;
+  background-color: #336666;
+  //#333333
   justify-content: space-between;
   align-items: center;
   height: 100%;

@@ -1,7 +1,7 @@
 <template>
-  <el-row class="home" :gutter="20">
-    <el-col :span="8" style="margin-top: 0px;margin-left:0px">
-      <el-card shadow="hover">
+  <el-row class="home" :gutter="20" >
+    <el-col :span="8" style="margin-top: 0px;margin-left:0px;">
+      <el-card shadow="hover" style="">
         <div class="user">
           <el-avatar :size="60" :src="userIMG"></el-avatar>
           <div class="userinfo">
@@ -193,5 +193,8 @@ export default {
 //.icon{
 //  height: 100%;
 //}
+.el-card{
+  //background-color: ;
+}
 
 </style>

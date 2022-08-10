@@ -8,10 +8,10 @@
       <common-header></common-header>
     </el-header>
 
-    <el-main>
+    <el-main style="background-color:white">
       <router-view/>
     </el-main>
-    <el-footer>Footeraaaaaaaaaaaaaaa</el-footer>
+    <el-footer style="background-color: #336666">Footeraaaaaaaaaaaaaaa</el-footer >
   </el-container>
   </el-container>
 </template>
