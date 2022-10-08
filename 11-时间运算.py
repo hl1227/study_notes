@@ -31,3 +31,23 @@ print(t3,type(t3))
 #字符串日期转时间戳
 t=time.mktime(time.strptime(now_str,'%Y-%m-%d %H:%M:%S'))
 print(t,type(t))
+
+#生成每天日期
+def create_assist_date(datestart=None, dateend=None):
+    # 创建日期辅助表
+    if datestart is None:
+        datestart = '20220101'
+    if dateend is None:
+        dateend = datetime.datetime.now().strftime('%Y%m%d')
+
+    # 转为日期格式
+    datestart = datetime.datetime.strptime(datestart, '%Y%m%d')
+    dateend = datetime.datetime.strptime(dateend, '%Y%m%d')
+    date_list = []
+    date_list.append(datestart.strftime('%Y%m%d'))
+    while datestart < dateend:
+        # 日期叠加一天
+        datestart += datetime.timedelta(days=+7)
+        # 日期转字符串存入列表
+        date_list.append(datestart.strftime('%Y%m%d'))
+    print(date_list)
